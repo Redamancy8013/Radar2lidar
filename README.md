@@ -36,3 +36,44 @@ Extrinsic Params  | Keyboard_input	  | Extrinsic Params	  | Keyboard_input
 `Reset`: Press button to reset all manual adjustment.
 
 `Save Image`: If the this button was pressed, the results (calibrated image, extrinsic and intrinsic matrix) are stored by default at running directory ~./manual_calib/:
+
+## Before building  
+Modify the `/Radar2lidar/src/radar_lidar/CMakeLists.txt`  
+  
+In the sentense `SET(ALL_PROJECT_TOPLEVEL_PATH "/home/easycool/project/dnet/${PROJECT_NAME}/")`, modify the path `/home/easycool/project/dnet/${PROJECT_NAME}/` to your project path.  
+  
+Modify the `/Radar2lidar/src/radar_lidar/receive_module.cpp`  
+  
+On the line 374, modify the path `/home/easycool/project/dnet/radar2lidar/config/front_radar-to-top_center_lidar-extrinsic.json` to the path where you save the front_radar-to-top_center_lidar-extrinsic.json.  
+
+## How to build  
+Open the terminal in the directory `/Radar2lidar/src/radar_lidar`.  
+Run the following command:
+```
+mkdir build  
+cd build  
+cmake ..  
+make
+```
+Then two executable files: lidar_camera, lidar_receive will be generated in the directory `/Radar2lidar/bin`.  
+
+Open the terminal in the directory `/dqt_bag`.  
+Run the following command:  
+```
+mkdir build  
+cd build  
+cmake ..  
+make
+```
+Then an executable file: dqt_bag will be generated in the directory `/dqt/build`.  
+
+## Run the test sample:  
+Put the data folder in the appropriate path.
+Open Terminal in the directory /dqt_bag/build. Run the following command:  
+`./dqt_bag`  
+In the visualization window, click the file button and select the data in the data folder. For example, select `/data/path_return_2022-06-29-10-43-05`.  
+Open another terminal in the directory `/Radar2lidar/bin`. Run the following command:  
+`./radar_lidar`  
+Then, click the bottom: start/stop.
+The calibration window will be displayed. The operation method is shown above.
+
