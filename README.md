@@ -5,8 +5,8 @@ This project is another open source project on github SensorCalibration in lidar
  * PCL 1.9  
  * eigen3  
  * Pangolin
- * dnet
- * dqt  
+ * dnet(https://github.com/Redamancy8013/ExplainOfSensorsCalibration/tree/main/dnet)
+ * dqt(https://github.com/Redamancy8013/ExplainOfSensorsCalibration/tree/main/dqt_bag)
 ## 1. Four input files:  
 You need to play back the bag file in that link with the rosbag command to get the point cloud information and image information needed for that node. Intrinsic parameter and extrinsic parameter for initialization are in the data folder. You should download them to the appropriate path, and modify the relevant path in the cpp source code in the src folder.  
  * extrinsic_json: JSON file of initial values of extrinsic parameters between sensors
