@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
 
 find_package(OpenCV REQUIRED)
-find_package(pcl_conversions REQUIRED)
+find_package(jsoncpp REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common visualization io filters)
 find_package(Pangolin REQUIRED)
 
@@ -36,6 +36,7 @@ receive_module.cpp
 
 TARGET_LINK_LIBRARIES(radar_lidar
 dnet
+jsoncpp_lib
 ${PCL_COMMON_LIBRARIES} ${PCL_IO_LIBRARIES} ${PCL_VISUALIZATION_LIBRARIES} ${PCL_FILTERS_LIBRARIES}
 ${pcl_conversions_LIBRARIES}
 pcl_visualization
